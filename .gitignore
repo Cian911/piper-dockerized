@@ -26,3 +26,4 @@ training/audio_out_post/*
 training/audio_out_backup/*
 training/wav/*
 training/dataset/*
+training/videos.csv
