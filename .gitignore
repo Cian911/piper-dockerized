@@ -20,3 +20,9 @@ htmlcov
 
 .venv/
 lightning_logs/
+training/checkpoint/*
+training/audio_out/*
+training/audio_out_post/*
+training/audio_out_backup/*
+training/wav/*
+training/dataset/*

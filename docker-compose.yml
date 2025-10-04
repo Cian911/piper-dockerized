@@ -1,0 +1,14 @@
+services:
+  piper:
+    build:
+      dockerfile: Dockerfile
+    # command: nvidia-smi
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    volumes:
+      - .:/piper
