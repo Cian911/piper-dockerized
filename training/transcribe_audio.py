@@ -47,8 +47,8 @@ with open(output_csv, "w", encoding="utf-8") as f:
         result = model.transcribe(audio_path)
 
         transcription = result["text"].strip()
-        file_id = os.path.splitext(audio_file)[0]
-        f.write(f"{file_id}|{transcription}\n")
+        relpath = os.path.join(audio_dir, audio_file)
+        f.write(f"{relpath}|{transcription}\n")
 
 print(f"Transcriptions complete! Metadata saved to {output_csv}")
 
