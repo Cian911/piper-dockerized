@@ -29,10 +29,10 @@ cd training
 
 # 1) Download audio from a CSV list of URLs (YouTube, etc.)
 #    CSV can be comma or newline separated.
-sh download_audio.sh urls.csv audio_out m4a
+./download_audio.sh urls.csv audio_out m4a
 
 # 2) Post-process: rename -> trim trailing silence -> split into 15s chunks
-bash post_process_audio.sh
+./post_process_audio.sh
 # outputs into audio_out_post/ and audio_out_post/split/
 
 # 3) Transcribe split WAVs to Piper-style metadata.csv
@@ -42,7 +42,7 @@ python3 transcribe_audio.py \
   --model large
 
 # 4) Preprocess to Piper dataset (creates ./complete with cache)
-bash pre_training.sh
+./pre_training.sh
 
 # 5) Train (example hyperparams — tune for your GPU/data)
 python3 -m piper_train \
@@ -82,12 +82,12 @@ You can then pass `--resume_from_checkpoint checkpoint/lessac-medium.ckpt` at tr
 
 ```bash
 # Usage:
-# sh download_audio.sh urls.csv [out_dir] [audio_format] [quality]
+# ./download_audio.sh urls.csv [out_dir] [audio_format] [quality]
 
 # Examples:
-sh download_audio.sh urls.csv               # -> audio_out/*.wav (VBR 0)
-sh download_audio.sh urls.csv audio_out m4a # -> audio_out/*.wav
-sh download_audio.sh urls.csv audio_out opus 192k
+./download_audio.sh urls.csv               # -> audio_out/*.wav (VBR 0)
+./download_audio.sh urls.csv audio_out m4a # -> audio_out/*.wav
+./download_audio.sh urls.csv audio_out opus 192k
 ```
 
 - Accepts CSV with commas/newlines; dedupes URLs.
